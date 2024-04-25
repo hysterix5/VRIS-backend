@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('establishments', function (Blueprint $table) {
             $table->id();
-            $table->String('name');
-            $table->String('address');
-            $table->String('registered_owner');
-            $table->String('permit');
-            $table->String('establishment_type');
-            $table->String('remarks');
-            $table->String('apprehension_type');
+            $table->String('name')->nullable();
+            $table->String('address')->nullable();
+            $table->String('registered_owner')->nullable();
+            $table->String('permit')->nullable();
+            $table->String('establishment_type')->nullable();
+            $table->String('remarks')->nullable();
+            $table->String('apprehension_type')->nullable();
             $table->timestamps();
         });
     }

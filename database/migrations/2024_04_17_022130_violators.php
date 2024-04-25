@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('violators', function (Blueprint $table) {
             $table->id();
-            $table->String('firstname');
-            $table->String('middlename');
-            $table->String('lastname');
-            $table->String('suffix');
-            $table->String('sex');
-            $table->String('address');
-            $table->timestamp('birthdate');
-            $table->String('occupation');
-            $table->String('dqrcode');
-            $table->String('apprehension_type');
+            $table->String('firstname')->nullable();
+            $table->String('middlename')->nullable();
+            $table->String('lastname')->nullable();
+            $table->String('suffix')->nullable();
+            $table->String('sex')->nullable();
+            $table->String('address')->nullable();
+            $table->timestamp('birthdate')->nullable();
+            $table->String('occupation')->nullable();
+            $table->String('dqrcode')->nullable();
+            $table->String('apprehension_type')->nullable();
             $table->timestamps();
         });
     }

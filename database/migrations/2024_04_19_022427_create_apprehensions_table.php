@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('apprehensions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('violator_id')->nullable();
+            $table->foreignId('public_conveyance_id')->nullable();
+            $table->foreignId('establishment_id')->nullable();
             $table->timestamps();
         });
     }

@@ -18,10 +18,10 @@ class AuthService
 
     public function authenticate(object $payload)
     {
-        $user = $this->userRepository->showByEmail($payload->email);
+        $user = $this->userRepository->showByUsername($payload->username);
 
         if (!$user) {
-            return response()->json(['message' => 'No account is associated with the email address provided.']);
+            return response()->json(['message' => 'No account is associated with the username provided.']);
         }
 
         if ($user) {

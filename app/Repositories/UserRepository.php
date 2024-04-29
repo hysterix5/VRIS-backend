@@ -17,9 +17,9 @@ class UserRepository
         return User::findOrFail($userId);
     }
 
-    public function showByEmail(string $email)
+    public function showByUsername(string $username)
     {
-        return User::where('email', $email)->first();
+        return User::where('username', $username)->first();
     }
 
     public function update(object $payload, int $userId)
@@ -28,6 +28,7 @@ class UserRepository
         $user->firstname = $payload->firstname;
         $user->lastname = $payload->lastname;
         $user->email = $payload->email;
+        $user->username = $payload->username;
         if ($payload->password) {
             $user->password = Hash::make($payload->password);
         }
@@ -42,6 +43,7 @@ class UserRepository
         $user->firstname = $payload->firstname;
         $user->lastname = $payload->lastname;
         $user->email = $payload->email;
+        $user->username = $payload->username;
         $user->password = Hash::make($payload->password);
         $user->save();
 

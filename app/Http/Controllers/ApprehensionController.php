@@ -7,22 +7,25 @@ use App\Models\Violators;
 use App\Models\Establishment;
 use App\Models\PublicConveyances;
 use App\Models\Apprehension;
+use App\Models\Barangay;
 
 class ApprehensionController extends Controller
 {
     public function violator_create(Request $request) {
-        // $validatedData = $request->validate([
-        //     'firstname' => 'required|string',
-        //     'middlename' => 'required|string',
-        //     'lastname' => 'required|string',
-        //     'sex' => 'required|string',
-        //     'address' => 'required|string',
-        //     'birthdate' => 'required|date',
-        //     'suffix' => 'nullable|string',
-        //     'occupation' => 'required|string',
-        //     'dqrcode' => 'nullable|string',
-        //     'apprehension_type' => 'required|string',
-        // ]);
+        $request->validate([
+            'firstname' => 'required|string',
+            'middlename' => 'required|string',
+            'lastname' => 'required|string',
+            'sex' => 'required|string',
+            'address' => 'required|string',
+            'birthdate' => 'required|date',
+            'suffix' => 'nullable|string',
+            'occupation' => 'required|string',
+            'referenceid' => 'nullable|string',
+            'apprehension_type' => 'required|string',
+        ]);
+
+        // $validatedData->save();
 
         $violator = new Violators();
         $violator->firstname = $request->firstname;
@@ -33,7 +36,7 @@ class ApprehensionController extends Controller
         $violator->birthdate = $request->birthdate;
         $violator->suffix = $request->suffix;
         $violator->occupation = $request->occupation;
-        $violator->dqrcode = $request->dqrcode;
+        $violator->referenceid = $request->referenceid;
         $violator->apprehension_type = $request->apprehension_type;
         $violator->save();
 
@@ -122,6 +125,13 @@ class ApprehensionController extends Controller
         $public_conveyances = PublicConveyances::all();
 
         return response()->json($public_conveyances);
+    }
+
+    public function fetchBarangay()
+    {
+        $barangay = Barangay::all();
+
+        return response()->json($barangay);
     }
 
 }

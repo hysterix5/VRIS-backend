@@ -21,7 +21,7 @@ return new class extends Migration
             $table->String('address')->nullable();
             $table->timestamp('birthdate')->nullable();
             $table->String('occupation')->nullable();
-            $table->String('dqrcode')->nullable();
+            $table->String('referenceid')->nullable();
             $table->String('apprehension_type')->nullable();
             $table->timestamps();
         });

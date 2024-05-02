@@ -13,16 +13,16 @@ class ApprehensionController extends Controller
 {
     public function violator_create(Request $request) {
         $request->validate([
-            'firstname' => 'required|string',
-            'middlename' => 'required|string',
-            'lastname' => 'required|string',
+            'firstname' => 'required|string|regex:/^[A-Za-z\s\-]+$/',
+            'middlename' => 'required|string|regex:/^[A-Za-z\s\-]+$/',
+            'lastname' => 'required|string|regex:/^[A-Za-z\s\-]+$/',
             'sex' => 'required|string',
             'address' => 'required|string',
             'birthdate' => 'required|date',
             'suffix' => 'nullable|string',
-            'occupation' => 'required|string',
+            'occupation' => 'required|string|regex:/^[A-Za-z\s\-]+$/',
             'referenceid' => 'nullable|string',
-            'apprehension_type' => 'required|string',
+            'apprehension_type' => 'required|string|',
         ]);
 
         // $validatedData->save();
@@ -48,15 +48,16 @@ class ApprehensionController extends Controller
     }
 
     public function establishment_create(Request $request) {
-        // $validatedData = $request->validate([
-        //     'name' => 'required|string',
-        //     'address' => 'required|string',
-        //     'registered_owner' => 'required|string',
-        //     'permit' => 'required|string',
-        //     'establishment_type' => 'required|string',
-        //     'remarks' => 'nullable|string',
-        //     'apprehension_type' => 'required|string',
-        // ]);
+        $request->validate([
+            'name' => 'required|string|regex:/^[A-Za-z\s\-]+$/',
+            'address' => 'required|string',
+            'registered_owner' => 'required|string|regex:/^[A-Za-z\s\-]+$/',
+            'permit' => 'required|string',
+            'establishment_type' => 'required|string|regex:/^[A-Za-z\s\-]+$/',
+            'remarks' => 'nullable|string',
+            'apprehension_type' => 'required|string',
+        ]);
+
         $establishment = new Establishment();
         $establishment->name = $request->name;
         $establishment->address = $request->address;
@@ -78,15 +79,15 @@ class ApprehensionController extends Controller
     }
 
     public function pc_create(Request $request) {
-        // $validatedData = $request->validate([
-        //     'driver_name' => 'required|string',
-        //     'apprehension_place' => 'required|string',
-        //     'license_no' => 'required|string',
-        //     'plate_no' => 'required|string',
-        //     'registered_owner' => 'required|string',
-        //     'owner_address' => 'required|string',
-        //     'apprehension_type' => 'required|string',
-        // ]);
+       $request->validate([
+            'driver_name' => 'required|string|regex:/^[A-Za-z\s\-]+$/',
+            'apprehension_place' => 'required|string',
+            'license_no' => 'required|string',
+            'plate_no' => 'required|string',
+            'registered_owner' => 'required|string|regex:/^[A-Za-z\s\-]+$/',
+            'owner_address' => 'required|string',
+            'apprehension_type' => 'required|string',
+        ]);
         $public_conveyances = new PublicConveyances();
         $public_conveyances->driver_name = $request->driver_name;
         $public_conveyances->apprehension_place = $request->apprehension_place;

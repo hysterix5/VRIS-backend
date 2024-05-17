@@ -16,8 +16,11 @@ return new class extends Migration
             $table->foreignId('violator_id')->nullable();
             $table->foreignId('public_conveyance_id')->nullable();
             $table->foreignId('establishment_id')->nullable();
+            $table->string('violation')->nullable();
             $table->timestamps();
         });
+
+
     }
 
     /**

@@ -9,18 +9,19 @@ class Apprehension extends Model
 {
     use HasFactory;
 
-    public function establishments()
-    {
-        return $this->hasMany(Establishment::class);
-    }
-
     public function violators()
     {
-        return $this->hasMany(Violators::class);
+        return $this->belongsTo(Violators::class);
     }
 
-    public function public_conveyances()
+    public function publicConveyance()
     {
-        return $this->hasMany(PublicConveyances::class);
+        return $this->belongsTo(PublicConveyances::class);
     }
+
+    public function establishment()
+    {
+        return $this->belongsTo(Establishment::class);
+    }
+
 }

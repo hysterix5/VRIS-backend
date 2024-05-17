@@ -11,6 +11,6 @@ class PublicConveyances extends Model
 
     public function apprehension()
     {
-        return $this->belongsTo(Apprehension::class);
+        return $this->hasOne(Apprehension::class, 'public_conveyance_id');
     }
 }

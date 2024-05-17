@@ -11,7 +11,6 @@ class Establishment extends Model
 
     public function apprehension()
     {
-        return $this->belongsTo(Apprehension::class);
+        return $this->hasOne(Apprehension::class, 'establishment_id');
     }
-
 }

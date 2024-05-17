@@ -28,5 +28,6 @@ Route::post('userRegister', [UserController::class, 'store']);
 Route::get('get_violators', [ApprehensionController::class, 'getViolators']);
 Route::get('get_establishments', [ApprehensionController::class, 'getEstablishments']);
 Route::get('get_public_conveyances', [ApprehensionController::class, 'getPublicConveyances']);
+Route::get('generate_report', [ApprehensionController::class, 'generateReport']);
 
 Route::get('fetch_barangay', [ApprehensionController::class, 'fetchBarangay']);

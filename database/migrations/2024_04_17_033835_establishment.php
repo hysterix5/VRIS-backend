@@ -19,7 +19,12 @@ return new class extends Migration
             $table->String('permit')->nullable();
             $table->String('establishment_type')->nullable();
             $table->String('remarks')->nullable();
-            $table->String('apprehension_type')->nullable();
+            $table->String('apprehending_officer')->nullable();
+            $table->String('police_station')->nullable();
+            $table->String('encoded_by')->nullable();
+            $table->timestamp('date_apprehended')->nullable();
+            $table->String('cigarette_type')->nullable();
+            $table->String('payment_status')->nullable();
             $table->timestamps();
         });
     }

@@ -29,6 +29,8 @@ class UserRepository
         $user->lastname = $payload->lastname;
         $user->email = $payload->email;
         $user->username = $payload->username;
+        $user->access_level = $payload->access_level;
+
         if ($payload->password) {
             $user->password = Hash::make($payload->password);
         }
@@ -44,6 +46,7 @@ class UserRepository
         $user->lastname = $payload->lastname;
         $user->email = $payload->email;
         $user->username = $payload->username;
+        $user->access_level = $payload->access_level;
         $user->password = Hash::make($payload->password);
         $user->save();
 

@@ -19,17 +19,10 @@ class UserSeeder extends Seeder
         User::create([
             'firstname' => 'John',
             'lastname' => 'Doe',
+            'username' => 'johndoe',
             'email' => 'user@test.com',
+            'access_level' => 'Admin',
             'password' => Hash::make('password'),
         ]);
-
-        for ($i = 0; $i < 99; $i++) {
-            User::create([
-                'firstname' => $faker->firstName(),
-                'lastname' => $faker->lastName(),
-                'email' => $faker->email(),
-                'password' => Hash::make('password')
-            ]);
-        }
     }
 }

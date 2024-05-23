@@ -13,7 +13,7 @@ class BarangaySeeder extends Seeder
      */
     public function run()
     {
-        $file_path = resource_path('sql\barangay_districts.sql');
+        $file_path = resource_path('sql/barangay_districts.sql');
 
         $sql = file_get_contents($file_path);
 

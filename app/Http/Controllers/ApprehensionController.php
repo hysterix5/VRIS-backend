@@ -112,7 +112,9 @@ class ApprehensionController extends Controller
 
     public function pc_create(Request $request) {
        $request->validate([
-            'driver_name' => 'required|string|regex:/^[A-Za-z\s\-]+$/',
+            'driver_firstname' => 'required|string|regex:/^[A-Za-z\s\-]+$/',
+            'driver_middlename' => 'required|string|regex:/^[A-Za-z\s\-]+$/',
+            'driver_lastname' => 'required|string|regex:/^[A-Za-z\s\-]+$/',
             'apprehension_place' => 'required|string',
             'license_no' => 'required|string',
             'plate_no' => 'required|string',
@@ -126,7 +128,9 @@ class ApprehensionController extends Controller
             'payment_status' =>  'nullable|string',
         ]);
         $public_conveyances = new PublicConveyances();
-        $public_conveyances->driver_name = $request->driver_name;
+        $public_conveyances->driver_firstname = $request->driver_firstname;
+        $public_conveyances->driver_middlename = $request->driver_middlename;
+        $public_conveyances->driver_lastname = $request->driver_lastname;
         $public_conveyances->apprehension_place = $request->apprehension_place;
         $public_conveyances->license_no = $request->license_no;
         $public_conveyances->plate_no = $request->plate_no;

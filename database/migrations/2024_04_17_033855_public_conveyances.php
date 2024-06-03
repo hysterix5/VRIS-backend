@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('public_conveyances', function (Blueprint $table) {
             $table->id();
-            $table->String('driver_name')->nullable();
+            $table->String('driver_firstname')->nullable();
+            $table->String('driver_middlename')->nullable();
+            $table->String('driver_lastname')->nullable();
             $table->String('apprehension_place')->nullable();
             $table->String('license_no')->nullable();
             $table->String('plate_no')->nullable();

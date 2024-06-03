@@ -16,7 +16,9 @@ class PublicConveyanceResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'driver_name' => $this ->driver_name,
+            'driver_firstname' => $this ->driver_firstname,
+            'driver_middlename' => $this ->driver_middlename,
+            'driver_lastname' => $this ->driver_lastname,
             'apprehension_place' =>$this ->apprehension_place,
             'license_no' => $this ->license_no,
             'plate_no' => $this ->plate_no,

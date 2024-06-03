@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApprehensionController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\TicketsController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,3 +33,6 @@ Route::get('get_public_conveyances', [ApprehensionController::class, 'getPublicC
 Route::get('generate_report', [ApprehensionController::class, 'generateReport']);
 
 Route::get('fetch_barangay', [ApprehensionController::class, 'fetchBarangay']);
+
+Route::post('tickets_create', [TicketsController::class, 'tickets_create']);
+Route::get('get_tickets', [TicketsController::class, 'get_tickets']);
